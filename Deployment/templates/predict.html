@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+    body { 
+        width: 100%;
+        height:100%;
+        font-family: 'Open Sans', sans-serif;
+        /* background: #092756; */
+        color: #fff;
+        font-size: 18px;
+        text-align:center;
+        letter-spacing:1.2px;
+        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        background-image: url('https://images.hdqwalls.com/download/stock-chart-minimal-4k-8c-2048x1152.jpg'); 
+        /* background-image: url('https://mediacloud.kiplinger.com/image/private/s--KvtEp0dc--/f_auto,t_primary-image-desktop@2/v1620416234/Investing/stock-market-today-050721.jpg'); */
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        fill-opacity: 0.5; 
+    } 
+
+</style>
+<h1 style="color: rgb(58, 238, 214);">PREDICTED CLOSE PRICE</h1>
+<h3 style= "color:rgb(202, 17, 17)"> Stock market close price predicted by Linear Regression Model </h3>
+<br><br>
+<div id="div1">
+    <div>
+     Date(YYYY-MM-DD): {{Year}}-{{Month}}-{{Day}} <br><br> StockName: {{StockName}} <br><br> Volume: {{Volume}} <br><br>
+     Open: {{Open}} <br><br> High: {{High}} <br><br> Low: {{Low}} <br><br> Neutral: {{Neutral}}
+     <br><br> Negative: {{Negative}} <br><br> Positive: {{Positive}}
+     <br><br>
+    <div style="font-size: 40px; color:rgb(202, 17, 17)">{{ prediction_text }} </div>
+    </div>
+</div> 
+
+<div>
+    <table>
+        <caption style="color:rgb(202, 17, 17)">Legend</caption>
+        <br>
+        <tr>
+          <th>StockName</th>
+          <th>Label</th>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Microsoft</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Nvidia</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>PayPal</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Tesla</td>
+            <td>4</td>
+          </tr>
+      </table> </div>
+
+<style>
+   table, th, td {
+    border: 1px solid black;
+    }
+</style>
+
+</body>
+</html>
+

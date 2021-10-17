@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+<meta charset="UTF-8">
+<title>ML Model Deployment</title>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <h1>STOCK PRICE PREDICTION USING MACRO HEADLINES</h1>
+  <p>Machine learning model used to predict stock close price for a given day <br> 
+    based on twitter sentiment analysis</p>
+ <div class="login">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form style="width: 100%;" action="{{ url_for('predict')}}"method="post">
+      <fieldset style="width:300%;">
+        <legend>Input values:</legend>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="Year" placeholder="year" required="required"  SIZE="50">
+        <br>
+        <label for="month">Month:</label>
+        <input type="text" id="month" name="Month" placeholder="month" required="required" />
+        <br>
+        <br> Day:
+		    <input type="text" id="dqy" name="Day" placeholder="day" required="required" />
+        <br>
+        <br> StockName:
+       <input type="text" id="stockname" name="StockName" placeholder="StockName" required="required" /> 
+       <br>
+        <br> Positive tweets:
+       <input type="text" id="positive" name="Positive" placeholder="positive" required="required" />
+       <br>
+        <br> Negative tweets:
+       <input type="text" id="negative" name="Negative" placeholder="negative" required="required" /> 
+       <br>
+        <br>Neutral tweets:
+       <input type="text" id="neutral" name="Neutral" placeholder="neutral" required="required" />
+       <br>
+       <br> Volume:
+      <input type="text" id="volume" name="Volume" placeholder="volume" required="required" />
+      <br>
+        <br> Open:
+      <input type="text" id="open" name="Open" placeholder="open" required="required" />
+      <br>
+        <br> High:
+      <input type="text" id="high" name="High" placeholder="high" required="required" />
+      <br>
+        <br> Low:
+      <input type="text" id="low" name="Low" placeholder="low" required="required" /> 
+      <br>
+      <br>
+    <button type="submit" class="btn btn-primary btn-block btn-large" onclick="showInput();">Predict</button>
+    </fieldset>
+    <br>
+    </div>
+    
+  </form>
+<div class="df">
+    <p align="center"><a href=twitter-stock-data >
+      <button type="submit" style="color:rgb(202, 17, 17);" class="btn btn-primary btn-block btn-large" action="/df">View dataframe</button> 
+    </a></p>
+</div>
+
+<div class="df">
+  <p align="center"><a href=actual-vs-predicted >
+    <button style="color:rgb(202, 17, 17);" type="submit" class="btn btn-primary btn-block btn-large" action="/ap">Actual vs Predicted price</button> 
+  </a></p>
+</div>
+  <!--   -->
+<div>
+  <table>
+      <caption style="color:rgb(202, 17, 17)">Legend</caption>
+      <br>
+      <tr>
+        <th>StockName</th>
+        <th>Label</th>
+      </tr>
+      <tr>
+          <td>Apple</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Microsoft</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Nvidia</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>PayPal</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Tesla</td>
+          <td>4</td>
+        </tr>
+    </table> </div>
+
+<style>
+ table, th, td {
+  border: 1px solid black;
+  }
+</style>
+ </div>
+</body>
+<!-- <style>
+  body {
+    background-image: url('https://mediacloud.kiplinger.com/image/private/s--KvtEp0dc--/f_auto,t_primary-image-desktop@2/v1620416234/Investing/stock-market-today-050721.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    fill-opacity: 0.5; 
+  }
+  </style>  -->
+</html>
